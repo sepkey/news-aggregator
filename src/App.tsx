@@ -1,24 +1,32 @@
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
-import { BrowserRouter, Route, Routes } from "react-router";
+import { createBrowserRouter, RouterProvider } from "react-router";
 import Layout from "./layout/inedx";
-import Home from "./pages/Home";
-import NewsDetails from "./pages/NewsDetails";
-import NotFound from "./pages/NotFound";
+import { ArticleDetails, Home, NotFound } from "./pages";
 
 const queryClient = new QueryClient();
+
+const router = createBrowserRouter([
+  {
+    path: "/",
+    Component: Layout,
+    children: [
+      {
+        index: true,
+        element: <Home />,
+      },
+      {
+        path: "/article/:articleId",
+        element: <ArticleDetails />,
+      },
+      { path: "*", element: <NotFound /> },
+    ],
+  },
+]);
 
 function App() {
   return (
     <QueryClientProvider client={queryClient}>
-      <BrowserRouter>
-        <Routes>
-          <Route element={<Layout />}>
-            <Route path="/" index element={<Home />} />
-            <Route path="/article/:newsId" element={<NewsDetails />} />
-            <Route path="*" element={<NotFound />} />
-          </Route>
-        </Routes>
-      </BrowserRouter>
+      <RouterProvider router={router} />
     </QueryClientProvider>
   );
 }
