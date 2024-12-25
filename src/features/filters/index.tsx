@@ -93,7 +93,6 @@ export default function Filters() {
                   <SelectValue placeholder="Select category" />
                 </SelectTrigger>
                 <SelectContent>
-                  <SelectItem value="all">All Categories</SelectItem>
                   <SelectItem value="politics">Politics</SelectItem>
                   <SelectItem value="technology">Technology</SelectItem>
                   <SelectItem value="business">Business</SelectItem>
@@ -112,10 +111,9 @@ export default function Filters() {
                   <SelectValue placeholder="Select source" />
                 </SelectTrigger>
                 <SelectContent>
-                  <SelectItem value="all">All Sources</SelectItem>
-                  <SelectItem value="bbc">BBC News</SelectItem>
-                  <SelectItem value="nyt">New York Times</SelectItem>
-                  <SelectItem value="reuters">Reuters</SelectItem>
+                  <SelectItem value="newsApi">News API</SelectItem>
+                  <SelectItem value="newYorkTimes">New York Times</SelectItem>
+                  <SelectItem value="reuters">The Guardian</SelectItem>
                 </SelectContent>
               </Select>
             )}
