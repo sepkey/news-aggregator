@@ -13,23 +13,27 @@ type Props = {
   article: Article;
 };
 
+const truncate = (str: string) => {
+  return str.length > 100 ? str.substring(0, 80) + " ..." : str;
+};
+
 export default function NewsCard({ article }: Props) {
   return (
-    <Card>
+    <Card className="flex flex-col">
       <CardHeader>
-        <CardTitle>{article.title}</CardTitle>
+        <CardTitle className="text-xl">{article.title}</CardTitle>
         <CardDescription>
           {article.source} -{" "}
           {new Date(article.publishedAt).toLocaleDateString()}
         </CardDescription>
       </CardHeader>
-      <CardContent>
-        <p>{article.description}</p>
+      <CardContent className="text-sm flex-grow">
+        <p>{truncate(article.description)}</p>
       </CardContent>
       <CardFooter>
         <Button
           asChild
-          className="bg-zinc-900 dark:bg-white dark:text-zinc-900"
+          className="bg-zinc-900 dark:bg-white dark:text-zinc-900 mt-auto"
         >
           <a href={article.url} target="_blank" rel="noopener noreferrer">
             Read More

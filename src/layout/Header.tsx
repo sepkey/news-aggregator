@@ -5,7 +5,7 @@ import Logo from "./Logo";
 
 export default function Header() {
   return (
-    <header className="bg-background shadow">
+    <header className="bg-background shadow-sm sticky top-0">
       <div className="max-w-7xl mx-auto py-6 px-4 sm:px-6 lg:px-8 flex justify-between">
         <Link to="/">
           <div className="flex items-center">
