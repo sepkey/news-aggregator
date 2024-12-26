@@ -1,5 +1,4 @@
 export interface NewsApiDto {
-  type: "newsApi";
   source: {
     id: string;
     name: string;

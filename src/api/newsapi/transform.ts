@@ -1,10 +1,10 @@
 import { Article } from "@/lib/types";
 import { NewsApiDto } from "./dto";
 
-export function dtoToNewsApi(dto: NewsApiDto): Article {
+export function dtoArticle(dto: NewsApiDto): Article {
   return {
     title: dto.title,
-    description: dto.description ?? "",
+    description: dto.description ?? "No description",
     image: dto.urlToImage ?? "",
     author: dto.author ?? "",
     publishedAt: dto.publishedAt ?? "",
