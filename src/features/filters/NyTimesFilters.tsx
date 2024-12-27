@@ -13,15 +13,16 @@ import {
   SelectTrigger,
   SelectValue,
 } from "@/components/ui/select";
-import { nyTimesSections } from "@/lib/constants";
 import { ApiFilters } from "@/lib/types";
 import { cn } from "@/lib/utils";
+import useStore from "@/store";
 import { format } from "date-fns";
 import { Calendar as CalendarIcon, Search, Tag } from "lucide-react";
 import { Controller, useFormContext } from "react-hook-form";
 
 export default function NyTimesFilters() {
   const { register, control } = useFormContext<ApiFilters>();
+  const { nyTimesSections } = useStore();
 
   return (
     <>

@@ -7,7 +7,9 @@ export default function GuardianSetting() {
   const { guardianSections, setGuardianSections } = useStore();
   return (
     <div className="space-y-4">
-      <h3 className="text-lg font-semibold">The Guardian Preferences</h3>
+      <h3 className="text-lg font-semibold">
+        Which sections do you prefer in The Guardian?
+      </h3>
       <MultiSelect
         options={sections || []}
         onValueChange={setGuardianSections}

@@ -1,20 +1,21 @@
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Separator } from "@/components/ui/separator";
-import { GuardianSetting, NewsApiSetting } from "@/features/settings";
+import { GuardianSetting } from "@/features/settings";
+import NyTimesSetting from "@/features/settings/NyTimesSetting";
 
 export default function Settings() {
   return (
     <div className="container mx-auto py-4">
-      <Card className="w-full max-w-4xl mx-auto">
+      <Card className="w-full max-w-6xl mx-auto">
         <CardHeader>
-          <CardTitle className="text-2xl font-bold">Preferences</CardTitle>
+          <CardTitle className="text-2xl font-bold">Settings</CardTitle>
         </CardHeader>
         <CardContent className="space-y-6">
-          <NewsApiSetting />
+          {/* <NewsApiSetting /> */}
           <Separator />
           <GuardianSetting />
           <Separator />
-          The NY times setting goes here
+          <NyTimesSetting />
         </CardContent>
       </Card>
     </div>

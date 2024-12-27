@@ -1,24 +1,59 @@
-import { Article } from "@/lib/types";
+import {
+  guardianSections,
+  newsApiCategorySources,
+  nyTimesSections,
+} from "@/lib/constants";
 import { create } from "zustand";
 
-type SessionStoreState = {
-  articles: Article[];
-  setArticles: (article: Article[]) => void;
+type StoreState = {
   guardianSections: string[];
   setGuardianSections: (sections: string[]) => void;
+  nyTimesSections: string[];
+  setNyTimesSections: (sections: string[]) => void;
   newsApiCategories: string[];
   setNewsApiCategories: (categories: string[]) => void;
+  newsApiCategorySources: {
+    value: string;
+    sources: string[];
+  }[];
+  setNewsApiCategorySources: (categorySource: {
+    value: string;
+    sources: string[];
+  }) => void;
+  updateCategorySources: (category: string, sources: string[]) => void;
+  resetCategory: (category: string) => void;
 };
 
-const useArticleStore = create<SessionStoreState>((set) => ({
-  articles: [],
-  guardianSections: ["culture", "community"],
+const useStore = create<StoreState>((set) => ({
+  guardianSections: guardianSections,
+  nyTimesSections: nyTimesSections.map((sec) => sec.value).slice(0, 6),
   newsApiCategories: ["general", "business"],
-  setArticles: (newArticles) => set(() => ({ articles: [...newArticles] })),
+  newsApiCategorySources: newsApiCategorySources.slice(0, 3),
   setGuardianSections: (sections) =>
     set(() => ({ guardianSections: sections })),
+  setNyTimesSections: (sections) => set(() => ({ nyTimesSections: sections })),
   setNewsApiCategories: (categories) =>
     set(() => ({ newsApiCategories: categories })),
+  setNewsApiCategorySources: (categoryResources) => {
+    set((state) => ({
+      newsApiCategorySources: [
+        ...state.newsApiCategorySources,
+        categoryResources,
+      ],
+    }));
+  },
+  updateCategorySources: (category, sources) =>
+    set((state) => ({
+      newsApiCategorySources: state.newsApiCategorySources.map((item) =>
+        item.value === category ? { ...item, sources } : item
+      ),
+    })),
+  resetCategory: (category) =>
+    set((state) => ({
+      newsApiCategorySources: state.newsApiCategorySources.map((item) =>
+        item.value === category ? { ...item, sources: [] } : item
+      ),
+    })),
 }));
 
-export default useArticleStore;
+export default useStore;
