@@ -1,6 +1,6 @@
-import { MultiSelect } from "@/components/ui/multiple-select";
-import useStore from "@/store";
-import useGuardianSections from "./useGuardianSections";
+import { MultiSelect } from '@/components/ui/multiple-select';
+import useStore from '@/store';
+import useGuardianSections from './useGuardianSections';
 
 export default function GuardianSetting() {
   const { sections } = useGuardianSections();
@@ -8,7 +8,7 @@ export default function GuardianSetting() {
   return (
     <div className="space-y-4">
       <h3 className="text-lg font-semibold">
-        Which sections do you prefer in The Guardian?
+        Which topics do you prefer in The Guardian?
       </h3>
       <MultiSelect
         options={sections || []}

@@ -3,7 +3,7 @@ export interface TheGuardianDto {
   type: string;
   sectionId: string;
   sectionName: string;
-  webPublicationDate: string | Date;
+  webPublicationDate: Date;
   webTitle: string;
   webUrl: string;
   pillarName: string;

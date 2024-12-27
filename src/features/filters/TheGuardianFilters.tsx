@@ -1,24 +1,24 @@
-import { Button } from "@/components/ui/button";
-import { Calendar } from "@/components/ui/calendar";
-import { Input } from "@/components/ui/input";
+import { Button } from '@/components/ui/button';
+import { Calendar } from '@/components/ui/calendar';
+import { Input } from '@/components/ui/input';
 import {
   Popover,
   PopoverContent,
   PopoverTrigger,
-} from "@/components/ui/popover";
+} from '@/components/ui/popover';
 import {
   Select,
   SelectContent,
   SelectItem,
   SelectTrigger,
   SelectValue,
-} from "@/components/ui/select";
-import type { ApiFilters } from "@/lib/types";
-import { cn } from "@/lib/utils";
-import useStore from "@/store";
-import { format } from "date-fns";
-import { Calendar as CalendarIcon, Search, Tag } from "lucide-react";
-import { Controller, useFormContext } from "react-hook-form";
+} from '@/components/ui/select';
+import { formatDate } from '@/lib/format-date';
+import type { ApiFilters } from '@/lib/types';
+import { cn } from '@/lib/utils';
+import useStore from '@/store';
+import { Calendar as CalendarIcon, Search, Tag } from 'lucide-react';
+import { Controller, useFormContext } from 'react-hook-form';
 
 export default function TheGuardianFilters() {
   const { register, control } = useFormContext<ApiFilters>();
@@ -30,7 +30,7 @@ export default function TheGuardianFilters() {
         <Input
           placeholder="Search articles..."
           className="pl-9 w-full"
-          {...register("queryGuardian")}
+          {...register('queryGuardian')}
         />
       </div>
       <Controller
@@ -43,19 +43,19 @@ export default function TheGuardianFilters() {
                 id="date"
                 variant="outline"
                 className={cn(
-                  "justify-start text-left font-normal",
-                  !value && "text-muted-foreground"
+                  'justify-start text-left font-normal',
+                  !value && 'text-muted-foreground'
                 )}
               >
                 <CalendarIcon className="mr-2 h-4 w-4" />
                 {value?.from ? (
                   value.to ? (
                     <>
-                      {format(value.from, "LLL dd, y")} -{" "}
-                      {format(value.to, "LLL dd, y")}
+                      {formatDate(value.from, 'LLL dd, y')} -{' '}
+                      {formatDate(value.to, 'LLL dd, y')}
                     </>
                   ) : (
-                    format(value.from, "LLL dd, y")
+                    formatDate(value.from, 'LLL dd, y')
                   )
                 ) : (
                   <span>Pick a date</span>
