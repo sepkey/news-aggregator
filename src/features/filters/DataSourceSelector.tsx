@@ -5,7 +5,7 @@ import {
   SelectTrigger,
   SelectValue,
 } from "@/components/ui/select";
-import { ApiFilters } from "@/lib/types";
+import type { ApiFilters } from "@/lib/types";
 import { Globe } from "lucide-react";
 import { Controller, useFormContext } from "react-hook-form";
 

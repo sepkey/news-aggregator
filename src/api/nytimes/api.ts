@@ -1,5 +1,5 @@
 import { nyTimesClient } from "../client";
-import { NyTimesDTO } from "./dto";
+import type { NyTimesDTO } from "./dto";
 import { dtoToArticle } from "./transform";
 
 type Response = {

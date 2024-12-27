@@ -1,5 +1,5 @@
-import { Article } from "@/lib/types";
-import { TheGuardianDto } from "./dto";
+import type { Article } from "@/lib/types";
+import type { TheGuardianDto } from "./dto";
 
 export function dtoToArticle(dto: TheGuardianDto): Article {
   return {

@@ -1,5 +1,5 @@
 import { newsApiClient } from "../client";
-import { NewsApiDto } from "./dto";
+import type { NewsApiDto } from "./dto";
 import { dtoArticle } from "./transform";
 
 type Response = { articles: NewsApiDto[] };

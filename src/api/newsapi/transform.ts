@@ -1,5 +1,5 @@
-import { Article } from "@/lib/types";
-import { NewsApiDto } from "./dto";
+import type { Article } from "@/lib/types";
+import type { NewsApiDto } from "./dto";
 
 export function dtoArticle(dto: NewsApiDto): Article {
   return {

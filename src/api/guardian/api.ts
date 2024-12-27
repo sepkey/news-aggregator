@@ -1,5 +1,5 @@
 import { theGuardianClient } from "../client";
-import { TheGuardianDto } from "./dto";
+import type { TheGuardianDto } from "./dto";
 import { dtoToArticle } from "./transform";
 
 type Response = {

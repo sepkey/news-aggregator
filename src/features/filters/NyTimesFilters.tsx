@@ -13,7 +13,7 @@ import {
   SelectTrigger,
   SelectValue,
 } from "@/components/ui/select";
-import { ApiFilters } from "@/lib/types";
+import type { ApiFilters } from "@/lib/types";
 import { cn } from "@/lib/utils";
 import useStore from "@/store";
 import { format } from "date-fns";

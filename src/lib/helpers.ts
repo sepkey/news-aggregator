@@ -1,4 +1,4 @@
-import { ApiFilters } from "./types";
+import type { ApiFilters } from "./types";
 
 export function getNewsApiParams(data: ApiFilters) {
   const params: Record<string, string | number> = { page: 1, pageSize: 10 };
