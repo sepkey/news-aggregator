@@ -10,6 +10,7 @@ import {
 } from "@/features/filters";
 import useApiCall from "@/features/filters/useApiCall";
 import { dateToGuardianFormat, dateToNyTimesFormat } from "@/lib/format-date";
+import { removeFalsyValues } from "@/lib/helpers";
 import { ApiFilters, DataResources } from "@/lib/types";
 import { useQueryClient } from "@tanstack/react-query";
 import { useState } from "react";
@@ -38,33 +39,42 @@ export default function Home() {
   const onSubmit = handleSubmit(async (data) => {
     const { dataSource, ...others } = data;
 
-    if (dataSource === "NEWS_API")
+    if (dataSource === "NEWS_API") {
+      const newsApiFilters = removeFalsyValues({
+        q: others.queryNewsApi,
+        category: others.category,
+      });
       setSelectedOption({
         dataSource,
-        filters: { q: others.queryNewsApi, category: others.category },
+        filters: newsApiFilters,
       });
+    }
 
     if (dataSource === "THE_GUARDIAN") {
+      const guardianFilters = removeFalsyValues({
+        q: others.queryGuardian,
+        section: others.sectionGuardian,
+        "from-date": dateToGuardianFormat(others.dateGuardian?.from),
+        "to-date": dateToGuardianFormat(others.dateGuardian?.to),
+      });
       setSelectedOption({
         dataSource,
-        filters: {
-          q: others.queryGuardian,
-          section: others.sectionGuardian,
-          "from-date": dateToGuardianFormat(others.dateGuardian?.from),
-          "to-date": dateToGuardianFormat(others.dateGuardian?.to),
-        },
+        filters: guardianFilters,
       });
     }
 
     if (dataSource === "NY_TIMES") {
+      const nyTimesFilter = removeFalsyValues({
+        q: others.queryNyTimes,
+        begin_date: dateToNyTimesFormat(others.dateNyTimes?.from),
+        end_date: dateToNyTimesFormat(others.dateNyTimes?.to),
+        ...(others.sectionNyTimes && {
+          fq: `section_name:(${others.sectionNyTimes})`,
+        }),
+      });
       setSelectedOption({
         dataSource,
-        filters: {
-          q: others.queryNyTimes,
-          begin_date: dateToNyTimesFormat(others.dateNyTimes?.from),
-          end_date: dateToNyTimesFormat(others.dateNyTimes?.to),
-          fq: `section_name:(${others.sectionNyTimes})`,
-        },
+        filters: nyTimesFilter,
       });
     }
     await queryClient.invalidateQueries({ queryKey: [dataSource] });
