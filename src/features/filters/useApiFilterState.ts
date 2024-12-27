@@ -1,18 +1,18 @@
-import useApiCall from "@/features/filters/useApiCall";
-import { dateToGuardianFormat, dateToNyTimesFormat } from "@/lib/format-date";
-import { removeFalsyValues } from "@/lib/helpers";
-import type { ApiFilters, DataResources } from "@/lib/types";
-import { useQueryClient } from "@tanstack/react-query";
-import { useState } from "react";
-import { useForm } from "react-hook-form";
+import useApiCall from '@/features/filters/useApiCall';
+import { formatDate } from '@/lib/format-date';
+import { removeFalsyValues } from '@/lib/helpers';
+import type { ApiFilters, DataResources } from '@/lib/types';
+import { useQueryClient } from '@tanstack/react-query';
+import { useState } from 'react';
+import { useForm } from 'react-hook-form';
 
 export default function useApiFilterState() {
   const [selectedOption, setSelectedOption] = useState<{
     dataSource: DataResources;
     filters: Record<string, string | number>;
   }>({
-    dataSource: "NEWS_API",
-    filters: { q: "", category: "general" },
+    dataSource: 'NEWS_API',
+    filters: { q: '', category: 'general' },
   });
 
   const queryClient = useQueryClient();
@@ -29,7 +29,7 @@ export default function useApiFilterState() {
   const onSubmit = handleSubmit(async (data) => {
     const { dataSource, ...others } = data;
 
-    if (dataSource === "NEWS_API") {
+    if (dataSource === 'NEWS_API') {
       const newsApiFilters = removeFalsyValues({
         q: others.queryNewsApi,
         category: others.category,
@@ -40,12 +40,14 @@ export default function useApiFilterState() {
       });
     }
 
-    if (dataSource === "THE_GUARDIAN") {
+    if (dataSource === 'THE_GUARDIAN') {
       const guardianFilters = removeFalsyValues({
         q: others.queryGuardian,
         section: others.sectionGuardian,
-        "from-date": dateToGuardianFormat(others.dateGuardian?.from),
-        "to-date": dateToGuardianFormat(others.dateGuardian?.to),
+        ...(others.dateGuardian && {
+          'from-date': formatDate(others.dateGuardian.from, 'yyyy-MM-dd'),
+          'to-date': formatDate(others.dateGuardian.to, 'yyyy-MM-dd'),
+        }),
       });
       setSelectedOption({
         dataSource,
@@ -53,11 +55,13 @@ export default function useApiFilterState() {
       });
     }
 
-    if (dataSource === "NY_TIMES") {
+    if (dataSource === 'NY_TIMES') {
       const nyTimesFilter = removeFalsyValues({
         q: others.queryNyTimes,
-        begin_date: dateToNyTimesFormat(others.dateNyTimes?.from),
-        end_date: dateToNyTimesFormat(others.dateNyTimes?.to),
+        ...(others.dateNyTimes && {
+          begin_date: formatDate(others.dateNyTimes.from, 'YYYYMMDD'),
+          end_date: formatDate(others.dateNyTimes.to, 'YYYYMMDD'),
+        }),
         ...(others.sectionNyTimes && {
           fq: `section_name:(${others.sectionNyTimes})`,
         }),

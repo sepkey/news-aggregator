@@ -4,7 +4,7 @@ export type NyTimesDTO = {
   snippet: string;
   lead_paragraph: string;
   source: string;
-  pub_date: string | Date;
+  pub_date: Date;
   section_name: string;
   byline: {
     person: {
