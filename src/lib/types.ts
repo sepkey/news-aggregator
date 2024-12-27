@@ -1,4 +1,4 @@
-export type DataResources = "NEWS_API" | "THE_GUARDIAN" | "NY_TIMES";
+export type DataResources = 'NEWS_API' | 'THE_GUARDIAN' | 'NY_TIMES';
 
 export type ApiFilters = {
   dataSource: DataResources;
@@ -20,7 +20,7 @@ export type Article = {
   title: string;
   url: string;
   source: string;
-  publishedAt: string | Date;
+  publishedAt: Date;
   description: string;
   image?: string;
   author?: string;
