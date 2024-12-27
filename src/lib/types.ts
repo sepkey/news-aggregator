@@ -4,7 +4,6 @@ export type ApiFilters = {
   dataSource: DataResources;
   ////NEWS API
   queryNewsApi: string;
-  sourceNewApi: string;
   category: string;
   ////THE GUARDIAN
   queryGuardian: string;

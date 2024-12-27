@@ -12,8 +12,8 @@ import { Search, Tag } from "lucide-react";
 import { Controller, useFormContext } from "react-hook-form";
 
 export default function NewsApiFilters() {
-  const { register, control, watch } = useFormContext<ApiFilters>();
-  const { newsApiCategorySources } = useStore();
+  const { register, control } = useFormContext<ApiFilters>();
+  const { newsApiCategories } = useStore();
 
   return (
     <>
@@ -36,33 +36,11 @@ export default function NewsApiFilters() {
               <SelectValue placeholder="Select category" />
             </SelectTrigger>
             <SelectContent>
-              {newsApiCategorySources.map((category) => (
-                <SelectItem key={category.value} value={category.value}>
-                  {category.value}
+              {newsApiCategories.map((category) => (
+                <SelectItem key={category} value={category}>
+                  {category}
                 </SelectItem>
               ))}
-            </SelectContent>
-          </Select>
-        )}
-      />
-
-      <Controller
-        control={control}
-        name="sourceNewApi"
-        render={({ field: { onChange, value } }) => (
-          <Select value={value} onValueChange={onChange}>
-            <SelectTrigger className="md:w-[180px]">
-              <Tag className="mr-2 h-4 w-4" />
-              <SelectValue placeholder="Select source" />
-            </SelectTrigger>
-            <SelectContent>
-              {newsApiCategorySources
-                .find((itm) => itm.value === watch("category"))
-                ?.sources.map((source) => (
-                  <SelectItem key={source} value={source}>
-                    {source}
-                  </SelectItem>
-                ))}
             </SelectContent>
           </Select>
         )}

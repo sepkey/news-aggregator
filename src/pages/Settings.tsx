@@ -1,7 +1,10 @@
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Separator } from "@/components/ui/separator";
-import { GuardianSetting } from "@/features/settings";
-import NyTimesSetting from "@/features/settings/NyTimesSetting";
+import {
+  GuardianSetting,
+  NewsApiSetting,
+  NyTimesSetting,
+} from "@/features/settings";
 
 export default function Settings() {
   return (
@@ -11,7 +14,7 @@ export default function Settings() {
           <CardTitle className="text-2xl font-bold">Settings</CardTitle>
         </CardHeader>
         <CardContent className="space-y-6">
-          {/* <NewsApiSetting /> */}
+          <NewsApiSetting />
           <Separator />
           <GuardianSetting />
           <Separator />
