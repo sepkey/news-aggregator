@@ -1,5 +1,5 @@
 import Home from "./Home";
-import ArticleDetails from "./ArticleDetails";
 import NotFound from "./NotFound";
+import Settings from "./Settings";
 
-export { ArticleDetails, Home, NotFound };
+export { Home, NotFound, Settings };
