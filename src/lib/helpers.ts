@@ -9,6 +9,9 @@ export function removeFalsyValues(
   ) as Record<string, string | number>;
 }
 
-export const truncate = (str: string) => {
-  return str.length > 100 ? str.substring(0, 80) + ' ...' : str;
+export const truncate = (str: string, maxLength: number, maxCut?: number) => {
+  const firstPeriodIndex = str.indexOf('.');
+  return str.length > maxLength
+    ? str.substring(0, maxCut || firstPeriodIndex + 1) + ' ...'
+    : str;
 };

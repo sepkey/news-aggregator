@@ -1,6 +1,6 @@
 import { formatDate } from '@/lib/format-date';
 import { removeFalsyValues } from '@/lib/helpers';
-import { ApiFilters, DataResources } from '@/lib/types';
+import type { ApiFilters, DataResources } from '@/lib/types';
 
 export function buildFilters(
   dataSource: DataResources,

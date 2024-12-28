@@ -25,7 +25,7 @@ export default function TheGuardianFilters() {
   const { guardianSections } = useStore();
   return (
     <>
-      <div className="relative flex-1 min-w-[200px]">
+      <div className="relative flex-1 min-w-[160px]">
         <Search className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-muted-foreground" />
         <Input
           placeholder="Search articles..."
@@ -47,11 +47,11 @@ export default function TheGuardianFilters() {
                   !value && 'text-muted-foreground'
                 )}
               >
-                <CalendarIcon className="mr-2 h-4 w-4" />
+                <CalendarIcon className=" h-4 w-4" />
                 {value?.from ? (
                   value.to ? (
                     <>
-                      {formatDate(value.from, 'LLL dd, y')} -{' '}
+                      {formatDate(value.from, 'LLL dd, y')}-
                       {formatDate(value.to, 'LLL dd, y')}
                     </>
                   ) : (

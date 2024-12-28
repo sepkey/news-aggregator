@@ -1,4 +1,4 @@
-import useApiCall from '@/features/filters/useApiCall';
+import useApiCall from '@/features/filters/useGetArticles';
 import type { ApiFilters, DataResources } from '@/lib/types';
 import { useQueryClient } from '@tanstack/react-query';
 import { useState } from 'react';

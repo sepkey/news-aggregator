@@ -1,7 +1,7 @@
 import { getTheGuardianSearch } from '@/api/guardian/api';
 import { getNewsApiTopHeadline } from '@/api/newsapi/api';
 import { getNyTimes } from '@/api/nytimes/api';
-import { Article, DataResources } from '@/lib/types';
+import type { Article, DataResources } from '@/lib/types';
 import { useQuery } from '@tanstack/react-query';
 
 type Props = {

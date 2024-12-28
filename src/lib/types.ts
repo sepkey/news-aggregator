@@ -19,9 +19,10 @@ export type Article = {
   id: string;
   title: string;
   url: string;
-  source: string;
   publishedAt: Date;
   description: string;
+  source?: string;
+  category?: string;
   image?: string;
   author?: string;
 };

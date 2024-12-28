@@ -18,26 +18,28 @@ export default function Home() {
     <div>
       <FormProvider {...filtersForm}>
         <form onSubmit={onSubmit}>
-          <div className="w-full max-w-7xl mx-auto p-4">
-            <div className="flex flex-col md:flex-row gap-4">
+          <div className="w-full max-w-7xl mx-auto lg:px-4 mb-4">
+            <div className="flex flex-col md:flex-row lg:gap-4 gap-2 xl:gap-8">
               <DataSourceSelector />
               {watch('dataSource') === 'NEWS_API' && <NewsApiFilters />}
               {watch('dataSource') === 'THE_GUARDIAN' && <TheGuardianFilters />}
               {watch('dataSource') === 'NY_TIMES' && <NyTimesFilters />}
-              <Button type="submit" className="md:w-[120px]">
-                Search
-              </Button>
+              <Button type="submit">Search</Button>
             </div>
           </div>
         </form>
-        {isLoading ? <FeedLoading /> : <Feed articles={articles} />}
-        {isError && (
-          <Message
-            status="error"
-            message={error?.message || 'Error fetching articles.'}
-          />
-        )}
       </FormProvider>
+
+      {isLoading && <FeedLoading />}
+
+      {!isLoading && isError && (
+        <Message
+          status="error"
+          message={error?.message || 'Error fetching articles.'}
+        />
+      )}
+
+      {!isLoading && !isError && <Feed articles={articles} />}
     </div>
   );
 }
