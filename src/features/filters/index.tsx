@@ -1,7 +1,7 @@
-import DataSourceSelector from "./DataSourceSelector";
-import NewsApiFilters from "./NewsApiFilters";
-import NyTimesFilters from "./NyTimesFilters";
-import TheGuardianFilters from "./TheGuardianFilters";
+import DataSourceSelector from './DataSourceSelector';
+import NewsApiFilters from './NewsApiFilters';
+import NyTimesFilters from './NyTimesFilters';
+import TheGuardianFilters from './TheGuardianFilters';
 
 export {
   DataSourceSelector,

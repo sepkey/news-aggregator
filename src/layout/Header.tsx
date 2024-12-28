@@ -1,8 +1,8 @@
-import { Button } from "@/components/ui/button";
-import DarkLightToggle from "@/components/ui/dark-light-toggle";
-import { SettingsIcon } from "lucide-react";
-import { Link, useLocation } from "react-router";
-import Logo from "./Logo";
+import { Button } from '@/components/ui/button';
+import DarkLightToggle from '@/components/ui/dark-light-toggle';
+import { SettingsIcon } from 'lucide-react';
+import { Link, useLocation } from 'react-router';
+import Logo from './Logo';
 
 export default function Header() {
   const { pathname } = useLocation();
@@ -21,7 +21,7 @@ export default function Header() {
             <Button
               variant="outline"
               className={
-                pathname === "/settings" ? "border border-primary" : ""
+                pathname === '/settings' ? 'border border-primary' : ''
               }
               size="icon"
             >

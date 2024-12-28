@@ -1,6 +1,6 @@
-import Message from "@/components/ui/Message";
-import { Article } from "@/lib/types";
-import NewsCard from "./NewsCard";
+import Message from '@/components/ui/Message';
+import { Article } from '@/lib/types';
+import NewsCard from './NewsCard';
 
 type Props = { articles: Article[] };
 export default function Feed({ articles }: Props) {

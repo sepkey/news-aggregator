@@ -1,15 +1,15 @@
-import { Button } from "@/components/ui/button";
-import Message from "@/components/ui/Message";
-import Feed from "@/features/feed";
-import FeedLoading from "@/features/feed/FeedLoading";
+import { Button } from '@/components/ui/button';
+import Message from '@/components/ui/Message';
+import Feed from '@/features/feed';
+import FeedLoading from '@/features/feed/FeedLoading';
 import {
   DataSourceSelector,
   NewsApiFilters,
   NyTimesFilters,
   TheGuardianFilters,
-} from "@/features/filters";
-import useApiFilterState from "@/features/filters/useApiFilterState";
-import { FormProvider } from "react-hook-form";
+} from '@/features/filters';
+import useApiFilterState from '@/features/filters/useApiFilterState';
+import { FormProvider } from 'react-hook-form';
 
 export default function Home() {
   const { articles, error, filtersForm, isError, isLoading, onSubmit, watch } =
@@ -21,9 +21,9 @@ export default function Home() {
           <div className="w-full max-w-7xl mx-auto p-4">
             <div className="flex flex-col md:flex-row gap-4">
               <DataSourceSelector />
-              {watch("dataSource") === "NEWS_API" && <NewsApiFilters />}
-              {watch("dataSource") === "THE_GUARDIAN" && <TheGuardianFilters />}
-              {watch("dataSource") === "NY_TIMES" && <NyTimesFilters />}
+              {watch('dataSource') === 'NEWS_API' && <NewsApiFilters />}
+              {watch('dataSource') === 'THE_GUARDIAN' && <TheGuardianFilters />}
+              {watch('dataSource') === 'NY_TIMES' && <NyTimesFilters />}
               <Button type="submit" className="md:w-[120px]">
                 Search
               </Button>
@@ -34,7 +34,7 @@ export default function Home() {
         {isError && (
           <Message
             status="error"
-            message={error?.message || "Error fetching articles."}
+            message={error?.message || 'Error fetching articles.'}
           />
         )}
       </FormProvider>

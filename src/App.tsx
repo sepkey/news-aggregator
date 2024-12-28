@@ -1,13 +1,13 @@
-import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
-import { createBrowserRouter, RouterProvider } from "react-router";
-import Layout from "./layout/inedx";
-import { Home, NotFound, Settings } from "./pages";
+import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
+import { createBrowserRouter, RouterProvider } from 'react-router';
+import Layout from './layout/inedx';
+import { Home, NotFound, Settings } from './pages';
 
 const queryClient = new QueryClient();
 
 const router = createBrowserRouter([
   {
-    path: "/",
+    path: '/',
     Component: Layout,
     children: [
       {
@@ -15,10 +15,10 @@ const router = createBrowserRouter([
         element: <Home />,
       },
       {
-        path: "/settings",
+        path: '/settings',
         element: <Settings />,
       },
-      { path: "*", element: <NotFound /> },
+      { path: '*', element: <NotFound /> },
     ],
   },
 ]);
