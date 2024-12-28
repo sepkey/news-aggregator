@@ -2,8 +2,8 @@ import {
   guardianSections,
   newsApiCategories,
   nyTimesSections,
-} from "@/lib/constants";
-import { create } from "zustand";
+} from '@/lib/constants';
+import { create } from 'zustand';
 
 type StoreState = {
   guardianSections: string[];

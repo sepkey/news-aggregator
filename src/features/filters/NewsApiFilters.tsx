@@ -1,15 +1,15 @@
-import { Input } from "@/components/ui/input";
+import { Input } from '@/components/ui/input';
 import {
   Select,
   SelectContent,
   SelectItem,
   SelectTrigger,
   SelectValue,
-} from "@/components/ui/select";
-import type { ApiFilters } from "@/lib/types";
-import useStore from "@/store";
-import { Search, Tag } from "lucide-react";
-import { Controller, useFormContext } from "react-hook-form";
+} from '@/components/ui/select';
+import type { ApiFilters } from '@/lib/types';
+import useStore from '@/store';
+import { Search, Tag } from 'lucide-react';
+import { Controller, useFormContext } from 'react-hook-form';
 
 export default function NewsApiFilters() {
   const { register, control } = useFormContext<ApiFilters>();
@@ -22,7 +22,7 @@ export default function NewsApiFilters() {
         <Input
           placeholder="Search articles..."
           className="pl-9 w-full"
-          {...register("queryNewsApi")}
+          {...register('queryNewsApi')}
         />
       </div>
 

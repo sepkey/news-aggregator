@@ -1,10 +1,10 @@
-import useApiCall from '@/features/filters/useApiCall';
-import { formatDate } from '@/lib/format-date';
-import { removeFalsyValues } from '@/lib/helpers';
+import useApiCall from '@/features/filters/useGetArticles';
 import type { ApiFilters, DataResources } from '@/lib/types';
 import { useQueryClient } from '@tanstack/react-query';
 import { useState } from 'react';
 import { useForm } from 'react-hook-form';
+import { buildFilters } from './buildFilters';
+import { useKey } from './useKey';
 
 export default function useApiFilterState() {
   const [selectedOption, setSelectedOption] = useState<{
@@ -28,51 +28,16 @@ export default function useApiFilterState() {
 
   const onSubmit = handleSubmit(async (data) => {
     const { dataSource, ...others } = data;
+    const filters = buildFilters(dataSource, others);
+    setSelectedOption({
+      dataSource,
+      filters,
+    });
 
-    if (dataSource === 'NEWS_API') {
-      const newsApiFilters = removeFalsyValues({
-        q: others.queryNewsApi,
-        category: others.category,
-      });
-      setSelectedOption({
-        dataSource,
-        filters: newsApiFilters,
-      });
-    }
-
-    if (dataSource === 'THE_GUARDIAN') {
-      const guardianFilters = removeFalsyValues({
-        q: others.queryGuardian,
-        section: others.sectionGuardian,
-        ...(others.dateGuardian && {
-          'from-date': formatDate(others.dateGuardian.from, 'yyyy-MM-dd'),
-          'to-date': formatDate(others.dateGuardian.to, 'yyyy-MM-dd'),
-        }),
-      });
-      setSelectedOption({
-        dataSource,
-        filters: guardianFilters,
-      });
-    }
-
-    if (dataSource === 'NY_TIMES') {
-      const nyTimesFilter = removeFalsyValues({
-        q: others.queryNyTimes,
-        ...(others.dateNyTimes && {
-          begin_date: formatDate(others.dateNyTimes.from, 'YYYYMMDD'),
-          end_date: formatDate(others.dateNyTimes.to, 'YYYYMMDD'),
-        }),
-        ...(others.sectionNyTimes && {
-          fq: `section_name:(${others.sectionNyTimes})`,
-        }),
-      });
-      setSelectedOption({
-        dataSource,
-        filters: nyTimesFilter,
-      });
-    }
     await queryClient.invalidateQueries({ queryKey: [dataSource] });
   });
+
+  useKey('Enter', () => onSubmit());
 
   return { onSubmit, watch, isLoading, isError, articles, error, filtersForm };
 }

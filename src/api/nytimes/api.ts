@@ -1,6 +1,6 @@
-import { nyTimesClient } from "../client";
-import type { NyTimesDTO } from "./dto";
-import { dtoToArticle } from "./transform";
+import { nyTimesClient } from '../client';
+import type { NyTimesDTO } from './dto';
+import { dtoToArticle } from './transform';
 
 type Response = {
   response: {
@@ -9,7 +9,7 @@ type Response = {
 };
 
 export async function getNyTimes(params?: Record<string, string | number>) {
-  const response = await nyTimesClient.get<Response>("", {
+  const response = await nyTimesClient.get<Response>('', {
     params,
   });
   return response.data.response.docs.map((item: NyTimesDTO) =>

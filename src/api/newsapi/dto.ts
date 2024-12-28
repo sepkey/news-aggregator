@@ -1,4 +1,4 @@
-export interface NewsApiDto {
+export type NewsApiDto = {
   source: {
     id: string;
     name: string;
@@ -10,4 +10,4 @@ export interface NewsApiDto {
   urlToImage: string;
   publishedAt: Date;
   content: string;
-}
+};

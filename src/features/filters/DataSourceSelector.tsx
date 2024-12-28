@@ -4,10 +4,10 @@ import {
   SelectItem,
   SelectTrigger,
   SelectValue,
-} from "@/components/ui/select";
-import type { ApiFilters } from "@/lib/types";
-import { Globe } from "lucide-react";
-import { Controller, useFormContext } from "react-hook-form";
+} from '@/components/ui/select';
+import type { ApiFilters } from '@/lib/types';
+import { Globe } from 'lucide-react';
+import { Controller, useFormContext } from 'react-hook-form';
 
 export default function DataSourceSelector() {
   const { control } = useFormContext<ApiFilters>();

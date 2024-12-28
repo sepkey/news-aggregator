@@ -1,5 +1,5 @@
-import { getTheGuardianSections } from "@/api/guardian/api";
-import { useQuery } from "@tanstack/react-query";
+import { getTheGuardianSections } from '@/api/guardian/api';
+import { useQuery } from '@tanstack/react-query';
 
 export default function useGuardianSections() {
   const {
@@ -7,7 +7,7 @@ export default function useGuardianSections() {
     error,
     isLoading: isLoadingSections,
   } = useQuery({
-    queryKey: ["GUARDIAN_SECTIONS"],
+    queryKey: ['GUARDIAN_SECTIONS'],
     queryFn: getTheGuardianSections,
   });
   return { sections, error, isLoadingSections };

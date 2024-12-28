@@ -9,23 +9,26 @@ import {
 } from '@/components/ui/card';
 import { formatDate } from '@/lib/format-date';
 import { truncate } from '@/lib/helpers';
-import { Article } from '@/lib/types';
+import type { Article } from '@/lib/types';
 
 type Props = {
   article: Article;
 };
 
-export default function NewsCard({ article }: Props) {
+export default function ArticleCard({ article }: Props) {
   return (
     <Card className="flex flex-col">
       <CardHeader>
-        <CardTitle className="text-xl">{article.title}</CardTitle>
+        <CardTitle className="text-xl">
+          {truncate(article.title, 150, 140)}
+        </CardTitle>
         <CardDescription>
-          {article.source} - {formatDate(article.publishedAt)}
+          {article.source ? article.source : `category: ${article.category}`} -{' '}
+          {formatDate(article.publishedAt)}
         </CardDescription>
       </CardHeader>
       <CardContent className="text-sm flex-grow">
-        <p>{truncate(article.description)}</p>
+        <p>{truncate(article.description, 100, 80)}</p>
       </CardContent>
       <CardFooter>
         <Button

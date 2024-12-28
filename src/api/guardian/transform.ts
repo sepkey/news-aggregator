@@ -7,7 +7,7 @@ export function dtoToArticle(dto: TheGuardianDto): Article {
     url: dto.webUrl,
     id: dto.id,
     publishedAt: dto.webPublicationDate,
-    source: dto.sectionName ?? '',
+    category: dto.sectionName,
     description: '',
     image: '',
     author: '',

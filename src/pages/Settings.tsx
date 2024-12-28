@@ -1,10 +1,10 @@
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
-import { Separator } from "@/components/ui/separator";
+import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
+import { Separator } from '@/components/ui/separator';
 import {
   GuardianSetting,
   NewsApiSetting,
   NyTimesSetting,
-} from "@/features/settings";
+} from '@/features/settings';
 
 export default function Settings() {
   return (

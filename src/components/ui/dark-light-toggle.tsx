@@ -1,6 +1,6 @@
-import { MoonIcon, SunIcon } from "lucide-react";
-import { useState } from "react";
-import { Button } from "./button";
+import { MoonIcon, SunIcon } from 'lucide-react';
+import { useState } from 'react';
+import { Button } from './button';
 
 export default function DarkLightToggle() {
   const [isDarkMode, setIsDarkMode] = useState(false);
@@ -9,7 +9,7 @@ export default function DarkLightToggle() {
       variant="outline"
       onClick={() => {
         setIsDarkMode((prev) => !prev);
-        document.body.classList.toggle("dark");
+        document.body.classList.toggle('dark');
       }}
       size="icon"
     >

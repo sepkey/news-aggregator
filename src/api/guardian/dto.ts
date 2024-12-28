@@ -1,4 +1,4 @@
-export interface TheGuardianDto {
+export type TheGuardianDto = {
   id: string;
   type: string;
   sectionId: string;
@@ -7,4 +7,4 @@ export interface TheGuardianDto {
   webTitle: string;
   webUrl: string;
   pillarName: string;
-}
+};
