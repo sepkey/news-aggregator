@@ -5,6 +5,7 @@ import type { ApiFilters, DataResources } from '@/lib/types';
 import { useQueryClient } from '@tanstack/react-query';
 import { useState } from 'react';
 import { useForm } from 'react-hook-form';
+import { useKey } from './useKey';
 
 export default function useApiFilterState() {
   const [selectedOption, setSelectedOption] = useState<{
@@ -73,6 +74,8 @@ export default function useApiFilterState() {
     }
     await queryClient.invalidateQueries({ queryKey: [dataSource] });
   });
+
+  useKey('Enter', () => onSubmit());
 
   return { onSubmit, watch, isLoading, isError, articles, error, filtersForm };
 }
