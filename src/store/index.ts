@@ -1,5 +1,5 @@
 import {
-  guardianSections,
+  guardianInitSections,
   newsApiCategories,
   nyTimesSections,
 } from '@/lib/constants';
@@ -15,9 +15,9 @@ type StoreState = {
 };
 
 const useStore = create<StoreState>((set) => ({
-  guardianSections: guardianSections,
+  guardianSections: guardianInitSections,
   nyTimesSections: nyTimesSections.map((sec) => sec.value).slice(0, 6),
-  newsApiCategories: newsApiCategories.map((cat) => cat.value).slice(0, 2),
+  newsApiCategories: newsApiCategories.map((cat) => cat.value).slice(0, 4),
   setGuardianSections: (sections) =>
     set(() => ({ guardianSections: sections })),
   setNyTimesSections: (sections) => set(() => ({ nyTimesSections: sections })),

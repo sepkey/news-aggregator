@@ -8,15 +8,25 @@ import {
   NyTimesFilters,
   TheGuardianFilters,
 } from '@/features/filters';
+import { Pagination } from '@/features/filters/Pagination';
 import useApiFilterState from '@/features/filters/useApiFilterState';
 import { FormProvider } from 'react-hook-form';
 
 export default function Home() {
-  const { articles, error, filtersForm, isError, isLoading, onSubmit, watch } =
-    useApiFilterState();
+  const {
+    articles,
+    error,
+    form,
+    isError,
+    isLoading,
+    onSubmit,
+    watch,
+    changePage,
+    currentPage,
+  } = useApiFilterState();
   return (
     <div>
-      <FormProvider {...filtersForm}>
+      <FormProvider {...form}>
         <form onSubmit={onSubmit}>
           <div className="w-full max-w-7xl mx-auto lg:px-4 mb-4">
             <div className="flex flex-col md:flex-row lg:gap-4 gap-2 xl:gap-8">
@@ -40,6 +50,14 @@ export default function Home() {
       )}
 
       {!isLoading && !isError && <Feed articles={articles} />}
+
+      <div className="mt-8">
+        <Pagination
+          currentPage={currentPage}
+          onPrevious={() => changePage('previous')}
+          onNext={() => changePage('next')}
+        />
+      </div>
     </div>
   );
 }

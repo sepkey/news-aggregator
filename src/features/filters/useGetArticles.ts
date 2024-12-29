@@ -9,7 +9,7 @@ type Props = {
   filters: Record<string, string | number>;
 };
 
-export default function useApiCall(options: Props) {
+export default function useGetArticles(options: Props) {
   const {
     data: articles = [],
     isLoading,
