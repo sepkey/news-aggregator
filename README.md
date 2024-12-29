@@ -56,7 +56,6 @@ Follow the instructions:
 
 ## Preview
 Here are some previews of project:
-https://github.com/sepkey/files/blob/main/news-aggregator/screen-shot-1.PNG
 
 <img src="https://github.com/sepkey/files/blob/main/news-aggregator/screen-shot-1.PNG?raw=true"  width="1000" alt="news aggregator - sepkey">
 </br>
@@ -71,3 +70,7 @@ https://github.com/sepkey/files/blob/main/news-aggregator/screen-shot-1.PNG
 <img src="https://github.com/sepkey/files/blob/main/news-aggregator/screen-shot-6.PNG?raw=true"  width="1000" alt="news aggregator - sepkey">
 </br>
 <img src="https://github.com/sepkey/files/blob/main/news-aggregator/screen-shot-7.png?raw=true" width="1000" alt="news aggregator - sepkey">
+</br>
+</br>
+
+<img src="https://github.com/sepkey/files/blob/main/news-aggregator/video-previews.gif?raw=true" width="1000" alt="news aggregator - sepkey">
