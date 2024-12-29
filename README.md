@@ -31,11 +31,6 @@ Follow the instructions:
    npm run dev
    ```
 
-4. Run the app:
-   ```bash
-   flutter run
-   ```
-
 
 ## Features
 
