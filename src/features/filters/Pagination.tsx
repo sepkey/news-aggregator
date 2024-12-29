@@ -9,21 +9,26 @@ type Props = {
 
 export function Pagination({ currentPage, onPrevious, onNext }: Props) {
   return (
-    <div className="flex items-center justify-around">
+    <div className="flex items-center justify-center gap-4">
       <Button
         variant="outline"
         size="sm"
         onClick={onPrevious}
         disabled={currentPage <= 1}
-        className="w-28 fl"
+        className="w-28 text-primary"
       >
         <ChevronLeft className="h-4 w-4" />
         Previous
       </Button>
-      <span className="text-sm font-medium">Page {currentPage}</span>
-      <Button variant="outline" size="sm" onClick={onNext} className="w-28">
+      <span className="text-sm font-medium ">Page {currentPage}</span>
+      <Button
+        variant="outline"
+        size="sm"
+        onClick={onNext}
+        className="w-28 text-primary"
+      >
         Next
-        <ChevronRight className="h-4 w-4" />
+        <ChevronRight className="h-4 w-4 " />
       </Button>
     </div>
   );

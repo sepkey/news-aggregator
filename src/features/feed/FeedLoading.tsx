@@ -2,7 +2,7 @@ import Skeleton from '@/components/ui/skeleton';
 
 export default function FeedLoading() {
   return (
-    <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+    <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3 h-96">
       <div>
         <Skeleton />
         <Skeleton />
