@@ -41,10 +41,13 @@ export default function useApiFilterState() {
     const { dataSource, ...rawFilters } = data;
     const filters = buildFilters(dataSource, rawFilters);
 
+    const newSearchParams = new URLSearchParams();
+
     Object.entries(filters).forEach(([k, v]) => {
-      searchParams.set(k, String(v));
-      setSearchParams(searchParams);
+      if (v) newSearchParams.set(k, String(v));
     });
+
+    setSearchParams(newSearchParams);
 
     setSelectedResource({
       dataSource,
