@@ -7,6 +7,7 @@ This is a React TypeScript app designed as a news aggregator, providing users wi
 - [Installation](#installation)
 - [Features](#features)
 - [Technologies](#technologis)
+- [Preview](#preview)
 
 ## Prerequisites
 - [Node](https://nodejs.org/en): >=20
@@ -52,3 +53,20 @@ Follow the instructions:
 - **UI and Theming**: Shadcn UI - Tailwind CSS
 - **Routing**: React Router
 - **Static Code Analysis** : Eslint - Prettier
+
+## Preview
+Here are some previews of project:
+
+<img src="https://github.com/sepkey/Files/news-aggregator/screen-shot-1.jpg?raw=true" height="649" width="300" alt="news aggregator - sepkey">
+</br>
+<img src="https://github.com/sepkey/Files/news-aggregator/screen-shot-2.jpg?raw=true" height="649" width="300" alt="news aggregator - sepkey">
+</br>
+<img src="https://github.com/sepkey/Files/news-aggregator/screen-shot-3.jpg?raw=true" height="649" width="300" alt="news aggregator - sepkey">
+</br>
+<img src="https://github.com/sepkey/Files/news-aggregator/screen-shot-4.jpg?raw=true" height="649" width="300" alt="news aggregator - sepkey">
+</br>
+<img src="https://github.com/sepkey/Files/news-aggregator/screen-shot-5.jpg?raw=true" height="649" width="300" alt="news aggregator - sepkey">
+</br>
+<img src="https://github.com/sepkey/Files/news-aggregator/screen-shot-6.jpg?raw=true" height="649" width="300" alt="news aggregator - sepkey">
+</br>
+<img src="https://github.com/sepkey/Files/news-aggregator/screen-shot-7.jpg?raw=true" height="649" width="300" alt="news aggregator - sepkey">
