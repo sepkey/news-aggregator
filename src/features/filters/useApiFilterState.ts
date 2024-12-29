@@ -19,11 +19,11 @@ const initDatasourceFilters: DataSourceFilters = {
 };
 
 export default function useApiFilterState() {
-  const [selectedOption, setSelectedOption] = useState<DataSourceFilters>(
+  const [selectedResource, setSelectedResource] = useState<DataSourceFilters>(
     initDatasourceFilters
   );
   const { isLoading, isError, articles, error } =
-    useGetArticles(selectedOption);
+    useGetArticles(selectedResource);
 
   const [searchParams, setSearchParams] = useSearchParams();
 
@@ -31,21 +31,22 @@ export default function useApiFilterState() {
 
   const form = useForm<ApiFilters>({
     defaultValues: {
-      ...selectedOption.filters,
-      dataSource: selectedOption.dataSource,
+      ...selectedResource.filters,
+      dataSource: selectedResource.dataSource,
     },
   });
   const { handleSubmit, watch } = form;
 
   const onSubmit = handleSubmit(async (data) => {
-    const { dataSource, ...others } = data;
-    const filters = buildFilters(
-      dataSource,
-      others,
-      searchParams,
-      setSearchParams
-    );
-    setSelectedOption({
+    const { dataSource, ...rawFilters } = data;
+    const filters = buildFilters(dataSource, rawFilters);
+
+    Object.entries(filters).forEach(([k, v]) => {
+      searchParams.set(k, String(v));
+      setSearchParams(searchParams);
+    });
+
+    setSelectedResource({
       dataSource,
       filters,
     });
@@ -64,9 +65,9 @@ export default function useApiFilterState() {
 
       const { dataSource } = form.getValues();
 
-      setSelectedOption((prevOption) => ({
-        ...prevOption,
-        filters: { ...prevOption.filters, page: newPage },
+      setSelectedResource((prev) => ({
+        ...prev,
+        filters: { ...prev.filters, page: newPage },
       }));
 
       await queryClient.invalidateQueries({ queryKey: [dataSource] });
@@ -74,9 +75,9 @@ export default function useApiFilterState() {
     [searchParams, setSearchParams, form, queryClient]
   );
 
-  useFormReset(form, searchParams, setSearchParams);
+  useFormReset(form);
 
-  useKey('Enter', () => onSubmit());
+  useKey('Enter', onSubmit);
   const currentPage = parseInt(searchParams.get('page') || '1', 10);
   return {
     onSubmit,

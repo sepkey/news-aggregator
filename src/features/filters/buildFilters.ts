@@ -1,13 +1,10 @@
 import { formatDate } from '@/lib/format-date';
 import { removeFalsyValues } from '@/lib/helpers';
 import type { ApiFilters, DataResources } from '@/lib/types';
-import { SetURLSearchParams } from 'react-router';
 
 export function buildFilters(
   dataSource: DataResources,
-  data: Omit<ApiFilters, 'dataSource'>,
-  searchParams: URLSearchParams,
-  setSearchParams: SetURLSearchParams
+  data: Omit<ApiFilters, 'dataSource'>
 ) {
   let filters: Record<string, string | number> = { page: 1 };
 
@@ -48,15 +45,9 @@ export function buildFilters(
       };
       break;
     }
-
     default:
       throw new Error(`Unsupported data source: ${dataSource}`);
   }
   const cleanedFilters = removeFalsyValues(filters);
-
-  Object.entries(cleanedFilters).forEach(([k, v]) => {
-    searchParams.set(k, String(v));
-    setSearchParams(searchParams);
-  });
   return cleanedFilters;
 }

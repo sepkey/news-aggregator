@@ -2,14 +2,11 @@ import { allApisFilters } from '@/lib/constants';
 import { ApiFilters } from '@/lib/types';
 import { useEffect } from 'react';
 import { UseFormReturn } from 'react-hook-form';
-import { SetURLSearchParams } from 'react-router';
+import { useSearchParams } from 'react-router';
 
-export function useFormReset(
-  form: UseFormReturn<ApiFilters>,
-  searchParams: URLSearchParams,
-  setSearchParams: SetURLSearchParams
-) {
+export function useFormReset(form: UseFormReturn<ApiFilters>) {
   const { watch, reset } = form;
+  const [searchParams, setSearchParams] = useSearchParams();
 
   useEffect(() => {
     const subscription = watch((value, { name }) => {
