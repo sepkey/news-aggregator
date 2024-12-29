@@ -58,16 +58,16 @@ Follow the instructions:
 Here are some previews of project:
 https://github.com/sepkey/files/blob/main/news-aggregator/screen-shot-1.PNG
 
-<img src="https://github.com/sepkey/files/blob/main/news-aggregator/screen-shot-1.PNG?raw=true" height="649" width="300" alt="news aggregator - sepkey">
+<img src="https://github.com/sepkey/files/blob/main/news-aggregator/screen-shot-1.PNG?raw=true"  width="1000" alt="news aggregator - sepkey">
 </br>
-<img src="https://github.com/sepkey/files/blob/main/news-aggregator/screen-shot-2.PNG?raw=true" height="649" width="300" alt="news aggregator - sepkey">
+<img src="https://github.com/sepkey/files/blob/main/news-aggregator/screen-shot-2.PNG?raw=true"  width="1000" alt="news aggregator - sepkey">
 </br>
-<img src="https://github.com/sepkey/files/blob/main/news-aggregator/screen-shot-3.PNG?raw=true" height="649" width="300" alt="news aggregator - sepkey">
+<img src="https://github.com/sepkey/files/blob/main/news-aggregator/screen-shot-3.PNG?raw=true"  width="1000" alt="news aggregator - sepkey">
 </br>
-<img src="https://github.com/sepkey/files/blob/main/news-aggregator/screen-shot-4.PNG?raw=true" height="649" width="300" alt="news aggregator - sepkey">
+<img src="https://github.com/sepkey/files/blob/main/news-aggregator/screen-shot-4.PNG?raw=true"  width="1000" alt="news aggregator - sepkey">
 </br>
-<img src="https://github.com/sepkey/files/blob/main/news-aggregator/screen-shot-5.PNG?raw=true" height="649" width="300" alt="news aggregator - sepkey">
+<img src="https://github.com/sepkey/files/blob/main/news-aggregator/screen-shot-5.PNG?raw=true"  width="1000" alt="news aggregator - sepkey">
 </br>
-<img src="https://github.com/sepkey/files/blob/main/news-aggregator/screen-shot-6.PNG?raw=true" height="649" width="300" alt="news aggregator - sepkey">
+<img src="https://github.com/sepkey/files/blob/main/news-aggregator/screen-shot-6.PNG?raw=true"  width="1000" alt="news aggregator - sepkey">
 </br>
-<img src="https://github.com/sepkey/files/blob/main/news-aggregator/screen-shot-7.PNG?raw=true" height="649" width="300" alt="news aggregator - sepkey">
+<img src="https://github.com/sepkey/files/blob/main/news-aggregator/screen-shot-7.PNG?raw=true" width="1000" alt="news aggregator - sepkey">
