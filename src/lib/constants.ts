@@ -83,14 +83,21 @@ export const nyTimesSections = [
   { label: 'Your Money', value: 'Your Money' },
 ];
 
-export const newsApiCategorySources = [
-  { value: 'general', sources: ['Fortune'] },
-  { value: 'business', sources: ['BBC'] },
-  { value: 'entertainment', sources: ['CNN'] },
-  { value: 'health', sources: ['Fortune', 'BBC'] },
-  { value: 'science', sources: ['Fortune', 'CNN'] },
-  { value: 'sports', sources: ['Fortune'] },
-  { value: 'technology', sources: ['Fortune'] },
+export const guardianInitSections = [
+  'culture',
+  'community',
+  'books',
+  'fashion',
 ];
 
-export const guardianSections = ['culture', 'community'];
+export const allApisFilters = [
+  'q',
+  'category',
+  'section',
+  'from-date',
+  'to-date',
+  'begin_date',
+  'end_date',
+  'fq',
+  'page',
+];

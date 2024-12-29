@@ -1,35 +1,52 @@
-import useApiCall from '@/features/filters/useGetArticles';
+import useGetArticles from '@/features/filters/useGetArticles';
 import type { ApiFilters, DataResources } from '@/lib/types';
 import { useQueryClient } from '@tanstack/react-query';
-import { useState } from 'react';
+import { useCallback, useState } from 'react';
 import { useForm } from 'react-hook-form';
+import { useSearchParams } from 'react-router';
 import { buildFilters } from './buildFilters';
+import { useFormReset } from './useFormReset';
 import { useKey } from './useKey';
 
+type DataSourceFilters = {
+  dataSource: DataResources;
+  filters: Record<string, string | number>;
+};
+
+const initDatasourceFilters: DataSourceFilters = {
+  dataSource: 'NEWS_API',
+  filters: { category: 'general' },
+};
+
 export default function useApiFilterState() {
-  const [selectedOption, setSelectedOption] = useState<{
-    dataSource: DataResources;
-    filters: Record<string, string | number>;
-  }>({
-    dataSource: 'NEWS_API',
-    filters: { q: '', category: 'general' },
-  });
+  const [selectedResource, setSelectedResource] = useState<DataSourceFilters>(
+    initDatasourceFilters
+  );
+  const { isLoading, isError, articles, error } =
+    useGetArticles(selectedResource);
+
+  const [searchParams, setSearchParams] = useSearchParams();
 
   const queryClient = useQueryClient();
 
-  const { isLoading, isError, articles, error } = useApiCall(selectedOption);
-  const filtersForm = useForm<ApiFilters>({
+  const form = useForm<ApiFilters>({
     defaultValues: {
-      ...selectedOption.filters,
-      dataSource: selectedOption.dataSource,
+      ...selectedResource.filters,
+      dataSource: selectedResource.dataSource,
     },
   });
-  const { handleSubmit, watch } = filtersForm;
+  const { handleSubmit, watch } = form;
 
   const onSubmit = handleSubmit(async (data) => {
-    const { dataSource, ...others } = data;
-    const filters = buildFilters(dataSource, others);
-    setSelectedOption({
+    const { dataSource, ...rawFilters } = data;
+    const filters = buildFilters(dataSource, rawFilters);
+
+    Object.entries(filters).forEach(([k, v]) => {
+      searchParams.set(k, String(v));
+      setSearchParams(searchParams);
+    });
+
+    setSelectedResource({
       dataSource,
       filters,
     });
@@ -37,7 +54,40 @@ export default function useApiFilterState() {
     await queryClient.invalidateQueries({ queryKey: [dataSource] });
   });
 
-  useKey('Enter', () => onSubmit());
+  const changePage = useCallback(
+    async (direction: 'next' | 'previous') => {
+      const currentPage = parseInt(searchParams.get('page') || '1', 10);
+      const newPage =
+        direction === 'next' ? currentPage + 1 : Math.max(1, currentPage - 1);
 
-  return { onSubmit, watch, isLoading, isError, articles, error, filtersForm };
+      searchParams.set('page', newPage.toString());
+      setSearchParams(searchParams);
+
+      const { dataSource } = form.getValues();
+
+      setSelectedResource((prev) => ({
+        ...prev,
+        filters: { ...prev.filters, page: newPage },
+      }));
+
+      await queryClient.invalidateQueries({ queryKey: [dataSource] });
+    },
+    [searchParams, setSearchParams, form, queryClient]
+  );
+
+  useFormReset(form);
+
+  useKey('Enter', onSubmit);
+  const currentPage = parseInt(searchParams.get('page') || '1', 10);
+  return {
+    onSubmit,
+    watch,
+    isLoading,
+    isError,
+    articles,
+    error,
+    form,
+    changePage,
+    currentPage,
+  };
 }
