@@ -15,12 +15,12 @@ This is a React TypeScript app designed as a news aggregator, providing users wi
 
 ## Installation
 Follow the instructions:
-- 1. Clone the repository:
-  ```git clone <repository-url>```
-- 2. Install packeges:
-  ```npm install```
-- 3. Run the App server
-  ```npm run dev```
+-1. Clone the repository:
+  ```bash git clone <repository-url>```
+-2. Install packeges:
+  ```bash npm install```
+-3. Run the App server
+  ```bash npm run dev```
 
 ## Features
 
