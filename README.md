@@ -15,11 +15,11 @@ This is a React TypeScript app designed as a news aggregator, providing users wi
 
 ## Installation
 Follow the instructions:
-- 1 Clone the repository:
+- 1. Clone the repository:
   ```git clone <repository-url>```
-- 2 Install packeges:
+- 2. Install packeges:
   ```npm install```
-- 3 Run the App server
+- 3. Run the App server
   ```npm run dev```
 
 ## Features
@@ -31,12 +31,14 @@ Follow the instructions:
 - **Customizable Feed**: Personalize news feed by selecting preferred topics in the settings page
 - **Dark and light Themes**: Toggle the themes for better user experience.
 - **Responsive Design**: Fully optimized for desktop and mobile devices.
--**Feature-based Structure**:
+- **Feature-based Structure**: Organize the codebase into a feature-based folder structure, making it easier to scale.
 
 
 ## Technologies
 
-- **Languages and libraries**: Reactjs - Typescript
-- **State management**: Zustand
-- **UI and Theming**: Shadcn UI - tailwind CSS
-- **Routing**: React router
+- **Languages and Libraries**: Reactjs - Typescript
+- **Global State Management**: Zustand
+- **Remote State Management**: React Query
+- **UI and Theming**: Shadcn UI - Tailwind CSS
+- **Routing**: React Router
+- **Static Code Analysis** : Eslint - Prettier
