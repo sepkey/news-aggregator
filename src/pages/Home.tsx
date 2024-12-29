@@ -25,7 +25,7 @@ export default function Home() {
     currentPage,
   } = useApiFilterState();
   return (
-    <div>
+    <div className="h-full">
       <FormProvider {...form}>
         <form onSubmit={onSubmit}>
           <div className="w-full max-w-7xl mx-auto lg:px-4 mb-4">
@@ -51,7 +51,7 @@ export default function Home() {
 
       {!isLoading && !isError && <Feed articles={articles} />}
 
-      <div className="mt-8">
+      <div className="mt-auto pt-1">
         <Pagination
           currentPage={currentPage}
           onPrevious={() => changePage('previous')}

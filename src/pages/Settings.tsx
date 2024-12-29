@@ -8,8 +8,8 @@ import {
 
 export default function Settings() {
   return (
-    <div className="container mx-auto py-4">
-      <Card className="w-full max-w-6xl mx-auto">
+    <div className="container ">
+      <Card className="w-full max-w-6xl mx-auto px-8">
         <CardHeader>
           <CardTitle className="text-2xl font-bold">Settings</CardTitle>
         </CardHeader>

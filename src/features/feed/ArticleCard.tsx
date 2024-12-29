@@ -17,9 +17,9 @@ type Props = {
 
 export default function ArticleCard({ article }: Props) {
   return (
-    <Card className="flex flex-col">
+    <Card className="flex flex-col ">
       <CardHeader>
-        <CardTitle className="text-xl">
+        <CardTitle className="text-md lg:text-lg text-md">
           {truncate(article.title, 150, 140)}
         </CardTitle>
         <CardDescription>
@@ -33,9 +33,10 @@ export default function ArticleCard({ article }: Props) {
       <CardFooter>
         <Button
           asChild
-          className="bg-zinc-900 hover:bg-zinc-700 dark:bg-white dark:text-zinc-900 mt-auto"
+          className="bg-zinc-900 hover:bg-zinc-700 dark:bg-white dark:text-zinc-900 mt-auto "
+          size="sm"
         >
-          <a href={article.url} target="_blank" rel="noopener noreferrer">
+          <a href={article.url} target={'_blank'}>
             Read More
           </a>
         </Button>
