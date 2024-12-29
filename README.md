@@ -1,50 +1,42 @@
-# React + TypeScript + Vite
+# Reactjs News Aggregator
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+This is a React TypeScript app designed as a news aggregator, providing users with a seamless browsing experience for the latest articles and updates. It leverages modern React technologies, follows best practices for modularity and maintainability, and is built to ensure scalability and high performance
 
-Currently, two official plugins are available:
+## Table of Contents
+- [Prerequisites](#prerequisites)
+- [Installation](#installation)
+- [Features](#features)
+- [Technologies](#technologis)
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## Prerequisites
+- [Node](https://nodejs.org/en): >=20
+- [Vite](https://vite.dev): >=6
+- [Reactjs](https://react.dev/): >=18
 
-## Expanding the ESLint configuration
+## Installation
+Follow the instructions:
+-1 Clone the repository:
+  ```git clone <repository-url>```
+-2 Install packeges:
+  ```npm install```
+-3 Run the App server
+  ```npm run dev```
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
+## Features
 
-- Configure the top-level `parserOptions` property like this:
+- **News List**: Fetch and display news articles from [NewsApi](https://newsapi.org/), [The Guardian](https://open-platform.theguardian.com/) and [Ny Times](https://developer.nytimes.com/) APIs in a clean, card-based layout
+- **Search Query**: Search for articles by keywords using a responsive search bar.
+- **Filtering**: Filter news by category, sections and date bsed on the api capabilities.
+- **Pagination**: Smooth navigation through articles with  server-side pagination.
+- **Customizable Feed**: Personalize news feed by selecting preferred topics in the settings page
+- **Dark and light Themes**: Toggle the themes for better user experience.
+- **Responsive Design**: Fully optimized for desktop and mobile devices.
+-**Feature-based Structure**:
 
-```js
-export default tseslint.config({
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-});
-```
 
-- Replace `tseslint.configs.recommended` to `tseslint.configs.recommendedTypeChecked` or `tseslint.configs.strictTypeChecked`
-- Optionally add `...tseslint.configs.stylisticTypeChecked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and update the config:
+## Technologies
 
-```js
-// eslint.config.js
-import react from 'eslint-plugin-react';
-
-export default tseslint.config({
-  // Set the react version
-  settings: { react: { version: '18.3' } },
-  plugins: {
-    // Add the react plugin
-    react,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended rules
-    ...react.configs.recommended.rules,
-    ...react.configs['jsx-runtime'].rules,
-  },
-});
-```
+- **Languages and libraries**: Reactjs - Typescript
+- **State management**: Zustand
+- **UI and Theming**: Shadcn UI - tailwind CSS
+- **Routing**: React router
