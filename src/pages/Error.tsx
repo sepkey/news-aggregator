@@ -1,7 +1,7 @@
 import Message from '@/components/ui/Message';
 import { isRouteErrorResponse, useRouteError } from 'react-router';
 
-const ErrorElement = () => {
+export default function Error() {
   const error = useRouteError();
   const prod = import.meta.env.PROD;
 
@@ -19,6 +19,4 @@ const ErrorElement = () => {
       </main>
     </div>
   );
-};
-
-export default ErrorElement;
+}

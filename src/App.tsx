@@ -1,8 +1,7 @@
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 import { createBrowserRouter, RouterProvider } from 'react-router';
 import Layout from './layout/inedx';
-import { Home, NotFound, Settings } from './pages';
-import ErrorElement from './pages/ErrorElement';
+import { Error, Home, NotFound, Settings } from './pages';
 
 const queryClient = new QueryClient();
 
@@ -10,7 +9,7 @@ const router = createBrowserRouter([
   {
     path: '/',
     Component: Layout,
-    errorElement: <ErrorElement />,
+    errorElement: <Error />,
     children: [
       {
         index: true,
