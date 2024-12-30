@@ -1,9 +1,8 @@
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 import { createBrowserRouter, RouterProvider } from 'react-router';
-import ErrorBoundary from './components/ErrorBoundary';
-import Message from './components/ui/Message';
 import Layout from './layout/inedx';
 import { Home, NotFound, Settings } from './pages';
+import ErrorElement from './pages/ErrorElement';
 
 const queryClient = new QueryClient();
 
@@ -11,6 +10,7 @@ const router = createBrowserRouter([
   {
     path: '/',
     Component: Layout,
+    errorElement: <ErrorElement />,
     children: [
       {
         index: true,
@@ -27,15 +27,9 @@ const router = createBrowserRouter([
 
 function App() {
   return (
-    <ErrorBoundary
-      fallback={
-        <Message status="error" message="Oops! Something went wrong." />
-      }
-    >
-      <QueryClientProvider client={queryClient}>
-        <RouterProvider router={router} />
-      </QueryClientProvider>
-    </ErrorBoundary>
+    <QueryClientProvider client={queryClient}>
+      <RouterProvider router={router} />
+    </QueryClientProvider>
   );
 }
 
